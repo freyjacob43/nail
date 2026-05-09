@@ -21,7 +21,7 @@ const HeroSection = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          src="/videos/hero.mp4"
+          src="/images/hero.mp4"
         />
         {/* Soft overlay */}
         <div
