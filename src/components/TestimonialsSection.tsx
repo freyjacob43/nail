@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     quote:
-      "I change my nails weekly now. It's my favorite form of self-care. DivaNails has completely replaced my salon visits — and I'm saving hundreds.",
+      "I change my nails weekly now. It's my favorite form of self-care. ONGLERIE BY MEL has completely replaced my salon visits — and I'm saving hundreds.",
     name: "Amanda L.",
     designation: "Entrepreneur · 8K followers",
     src: testimonial3,

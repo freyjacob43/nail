@@ -18,7 +18,7 @@ const WhatsAppOrderModal = ({ isOpen, onClose, product }: WhatsAppOrderModalProp
     const sanitizedName = name.trim().slice(0, 100);
     const sanitizedPhone = phone.trim().slice(0, 20);
 
-    const message = `🛍️ *New Order — DIVANAILS*\n\n` +
+    const message = `🛍️ *New Order — ONGLERIE BY MEL*\n\n` +
       `*Product:* ${product.name}\n` +
       `*Style:* ${product.style}\n` +
       `*Price:* ${product.price}\n\n` +

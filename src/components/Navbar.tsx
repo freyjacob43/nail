@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
-const links = ["Collection", "About", "Process", "Contact"];
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const homeLinks = ["Collection", "About", "Process", "Contact"];
 
   return (
     <motion.nav
@@ -19,38 +21,47 @@ const Navbar = () => {
         borderBottom: "1px solid rgba(0,0,0,0.05)",
       }}
     >
-      {/* Logo as circular brand badge */}
-      <a href="#" className="flex items-center">
+      {/* Logo */}
+      <Link to="/" className="flex items-center">
         <img
           src="/images/logo.png"
-          alt="Divanails Logo"
+          alt="ONGLERIE BY MEL Logo"
           className="h-16 w-16 md:h-20 md:w-20 object-cover rounded-full border-2 border-black shadow-md"
         />
-      </a>
+      </Link>
 
       {/* Desktop Links */}
       <div className="hidden md:flex items-center gap-10">
-        {links.map((link) => (
+        {homeLinks.map((link) => (
           <a
             key={link}
-            href={`#${link.toLowerCase()}`}
+            href={`/#${link.toLowerCase()}`}
             className="font-body text-[13px] font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors relative group"
           >
             {link}
             <span className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-blush transition-all duration-300 group-hover:w-full group-hover:left-0" />
           </a>
         ))}
+        <Link
+          to="/shop"
+          className="font-body text-[13px] font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors relative group"
+        >
+          Shop All
+          <span className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-blush transition-all duration-300 group-hover:w-full group-hover:left-0" />
+        </Link>
       </div>
 
-      {/* Book Now Button */}
+      {/* Book Now */}
       <a
-        href="#contact"
+        href="https://wa.me/213553409266"
+        target="_blank"
+        rel="noopener noreferrer"
         className="hidden md:inline-flex bg-foreground text-background rounded-full px-6 py-2.5 font-body text-[13px] font-medium hover:scale-[1.03] transition-transform"
       >
         Book Now
       </a>
 
-      {/* Mobile Menu Toggle */}
+      {/* Mobile toggle */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
         className="md:hidden text-foreground"
@@ -66,18 +77,27 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-[80px] left-0 right-0 bg-card/95 backdrop-blur-xl border-b border-border p-6 flex flex-col gap-4 md:hidden"
         >
-          {links.map((link) => (
+          {homeLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={`/#${link.toLowerCase()}`}
               onClick={() => setMobileOpen(false)}
               className="font-body text-sm font-medium tracking-[0.15em] uppercase text-muted-foreground"
             >
               {link}
             </a>
           ))}
+          <Link
+            to="/shop"
+            onClick={() => setMobileOpen(false)}
+            className="font-body text-sm font-medium tracking-[0.15em] uppercase text-muted-foreground"
+          >
+            Shop All
+          </Link>
           <a
-            href="#contact"
+            href="https://wa.me/213553409266"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-foreground text-background rounded-full px-6 py-2.5 font-body text-[13px] font-medium text-center"
           >
             Book Now
@@ -89,3 +109,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
